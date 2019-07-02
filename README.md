@@ -14,11 +14,11 @@ Python 3.x
 
 ## Comment lancer le serveur:
 ```bash
-python3 serveur_http_bouchon_t2k.py
+python3 serveur_http_bouchon_t2k.py config.json
 ```
 ou
 ```bash
-nohup python3 serveur_http_bouchon_T2k.py &
+nohup python3 serveur_http_bouchon_T2k.py config.json &
 ```
 
 ## utilisation de docker:
