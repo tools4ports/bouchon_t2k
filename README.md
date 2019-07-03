@@ -29,9 +29,16 @@ docker run --rm --detach --publish 1977:80 --name bouchon_t2k bouchon_t2k
 
 ## Comment tester (ici le serveur écoute le port 1977):
 ```bash
+curl http://localhost:1977
+```
+Retourne simplement le message "T2k server is up!"
+
+Pour transmettre des messages:
+```bash
 curl -d "le contenu du xml envoyé par le SIP" -X POST http://localhost:1977
 ```
-ou 
+
+ou tester les deux:
 ```bash
 python3 client_test.py 
 ```
