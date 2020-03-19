@@ -23,7 +23,7 @@ nohup python3 serveur_http_bouchon_T2k.py config.json &
 
 ## utilisation de docker:
 ```bash
-docker build -t bouchon_t2k
+docker build . -t bouchon_t2k
 docker run --rm --detach --publish 1977:80 --name bouchon_t2k bouchon_t2k
 ```
 
