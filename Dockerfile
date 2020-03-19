@@ -2,6 +2,8 @@ FROM python:3
 
 
 RUN mkdir /usr/src/t2k
+RUN mkdir /usr/src/t2k/log
+
 WORKDIR /usr/src/t2k
 
 COPY . /usr/src/t2k
