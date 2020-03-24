@@ -2,13 +2,19 @@ import requests
 from xml.etree import ElementTree as ET
 import os
 import datetime
+import sys
 
 
 os.environ['NO_PROXY'] = '127.0.0.1'
 
-URL = "http://127.0.0.1:1977"
+if len(sys.argv) != 2:
+	print("passer l'url en paramètre")
+	exit()
+
+URL = sys.argv[1]
+
 r = requests.get(URL)
-if r.text != "T2k server is up!":
+if r.status_code != 200:
 	raise Exception(r.text)
 	
 # envoi d'un message NCA_PORT

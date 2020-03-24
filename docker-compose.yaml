@@ -1,0 +1,13 @@
+version: '2.0'
+services:
+  t2k:
+    build: .
+    ports:
+    - "5000:80"
+    volumes:
+    - ./log:/var/log/t2k
+    - ./mess:/var/lib/t2k
+    environment:
+    - T2K_LOG_LEVEL=INFO
+    - T2K_LOG_FILE=/var/log/t2k/t2k.log
+    - T2K_MESS_DIR=/var/lib/t2k

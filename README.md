@@ -13,32 +13,51 @@ Retourne toujour "ok" sauf si le message est suffisamment mal contruit pour prov
 Python 3.x
 
 ## Comment lancer le serveur:
+Pour avoir la liste des options:
 ```bash
-python3 serveur_http_bouchon_t2k.py config.json
+python3 serveur_http_bouchon_t2k.py --help 
 ```
-ou
+
+exemple avec toutes les option
 ```bash
-nohup python3 serveur_http_bouchon_T2k.py config.json &
+python3 serveur_http_bouchon_T2k.py --port 5000 --log_level info --log_file /var/log/t2k/t2k.log --mess_dir /var/data/messages
+```
+valeurs par défaut:
+port: 80
+log_level: warning
+log_file: stdout
+mess_dir: aucun donc pas de sauvegarde des messages
+
+Note: sur certains système il est nécessaire d'avoir les droits root pour utiliser les ports au dessous de 4096.
+
+lancé en relachant le terminal:
+```bash
+nohup python3 serveur_http_bouchon_T2k.py &
 ```
 
 ## utilisation de docker:
+Il est aussi possible d'utiliser les variables d'environnement suivantes:
+T2K_LOG_LEVEL
+T2K_LOG_FILE
+T2K_MESS_DIR
+
 ```bash
 docker build . -t bouchon_t2k
-docker run --rm --detach --publish 1977:80 --name bouchon_t2k bouchon_t2k
+docker run --rm --detach --publish 5000:80 --name bouchon_t2k bouchon_t2k
 ```
 
-## Comment tester (ici le serveur écoute le port 1977):
+## Comment tester (ici le serveur écoute le port 5000):
 ```bash
-curl http://localhost:1977
+curl http://localhost:5000
 ```
 Retourne simplement le message "T2k server is up!"
 
 Pour transmettre des messages:
 ```bash
-curl -d "le contenu du xml envoyé par le SIP" -X POST http://localhost:1977
+curl -d "le contenu du xml envoyé par le SIP" -X POST http://localhost:5000
 ```
 
 ou tester les deux:
 ```bash
-python3 client_test.py 
+python3 client_test.py http://localhost:5000
 ```
