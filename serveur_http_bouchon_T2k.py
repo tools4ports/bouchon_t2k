@@ -16,7 +16,7 @@ class T2kHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         response = (
             open("get.html", "r")
             .read()
-            .replace("{{response_status}}", config.response_status)
+            .replace("{{configuration}}", str(config).replace("\n", "</br>\n"))
         )
         self.wfile.write(bytes(response, "utf-8"))
 
