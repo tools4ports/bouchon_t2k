@@ -11,3 +11,4 @@ services:
     - T2K_LOG_LEVEL=INFO
     - T2K_LOG_FILE=/var/log/t2k/t2k.log
     - T2K_MESS_DIR=/var/lib/t2k
+    #- T2K_RESPONSE_STATUS=KO # Permet de demander au bouchon de dire que les messages ne sont pas bon.
