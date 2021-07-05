@@ -33,11 +33,9 @@ class Config:
 
         # exploitation des variables d'environnement
 
-        # Pas de paramétrage du port dans l'environnement
-        # car si on est dans un container on en a pas besoin et ça peut
-        # même devenir problématique.
-        # if os.environ.get('T2K_PORT') is not None:
-        #    self.port = os.environ.get('T2K_PORT')
+        # La variable d'env pour le port d'écoute chez scalingo est PORT
+        if os.environ.get('PORT') is not None:
+           self.port = os.environ.get('PORT')
         if os.environ.get("T2K_LOG_FILE") is not None:
             self.log_file_path = os.environ.get("T2K_LOG_FILE")
         if os.environ.get("T2K_LOG_LEVEL") is not None:
