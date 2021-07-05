@@ -35,7 +35,7 @@ class Config:
 
         # La variable d'env pour le port d'écoute chez scalingo est PORT
         if os.environ.get('PORT') is not None:
-           self.port = os.environ.get('PORT')
+           self.port = int(os.environ.get('PORT'))
         if os.environ.get("T2K_LOG_FILE") is not None:
             self.log_file_path = os.environ.get("T2K_LOG_FILE")
         if os.environ.get("T2K_LOG_LEVEL") is not None:
