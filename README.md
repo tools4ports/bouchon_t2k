@@ -24,11 +24,11 @@ exemple avec toutes les option
 python3 serveur_http_bouchon_T2k.py --port 5000 --log_level info --log_file /var/log/t2k/t2k.log --mess_dir /var/data/messages --response_status
 ```
 valeurs par défaut:
-port: 80
-log_level: warning
-log_file: stdout
-mess_dir: aucun donc pas de sauvegarde des messages
-response_status: "OK"
+* port: 80
+* log_level: warning
+* log_file: stdout
+* mess_dir: aucun donc pas de sauvegarde des messages
+* response_status: "OK"
 
 Note: sur certains système il est nécessaire d'avoir les droits root pour utiliser les ports au dessous de 4096.
 
@@ -39,10 +39,10 @@ nohup python3 serveur_http_bouchon_T2k.py &
 
 ## utilisation de docker:
 Il est aussi possible d'utiliser les variables d'environnement suivantes:
-T2K_LOG_LEVEL
-T2K_LOG_FILE
-T2K_MESS_DIR
-T2K_RESPONSES_STATUS
+* T2K_LOG_LEVEL
+* T2K_LOG_FILE
+* T2K_MESS_DIR
+* T2K_RESPONSES_STATUS
 
 ```bash
 docker build . -t bouchon_t2k
